@@ -1,5 +1,7 @@
 
+
 using UnityEngine;
+using Random = System.Random;
 
 public class Player : MonoBehaviour
 {
@@ -13,9 +15,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laser;
 
+
     [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1;
+
+    [SerializeField] private int _lives = 3;
 
     void Start()
     {
@@ -32,6 +37,7 @@ public class Player : MonoBehaviour
             _canFire = Time.time + _fireRate;
             Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
         }
+
     }
 
     void playerMovement()
@@ -56,6 +62,15 @@ public class Player : MonoBehaviour
         if (transform.position.y < _lowerBound)
         {
             transform.position = new Vector3(transform.position.x, _lowerBound, 0);
+        }
+    }
+
+    public void damage()
+    {
+        _lives--;
+        if (_lives == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }
