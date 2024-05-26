@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laser;
     [SerializeField] private GameObject _tripleShot;
-    private bool _tripleshotpower = true;
+    private bool _tripleshotpower;
 
 
     [SerializeField]
@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     {
         transform.position = Vector3.zero;
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        _tripleshotpower = false;
 
         if (_spawnManager == null)
         {
@@ -85,6 +86,18 @@ public class Player : MonoBehaviour
         if (transform.position.y < _lowerBound)
         {
             transform.position = new Vector3(transform.position.x, _lowerBound, 0);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.CompareTag("PowerUps"))
+        {
+            //if(collider.name == "TripleShotPower")
+            //{
+                _tripleshotpower = true;
+                Destroy(collider.gameObject);
+            //}
         }
     }
 
