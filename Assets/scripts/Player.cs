@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject _laser;
+    [SerializeField] private GameObject _tripleShot;
+    private bool _tripleshotpower = true;
 
 
     [SerializeField]
@@ -28,23 +30,37 @@ public class Player : MonoBehaviour
         transform.position = Vector3.zero;
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
 
-        if(_spawnManager == null)
+        if (_spawnManager == null)
         {
             Debug.LogError("Spawn Manager is NULL");
         }
-        
+
     }
 
     void Update()
     {
         playerMovement();
 
+        fire();
+
+    }
+
+    void fire()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
             _canFire = Time.time + _fireRate;
-            Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-        }
+            if (_tripleshotpower == true)
+            {
+                Instantiate(_tripleShot, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
 
+            }
+            else
+            {
+                Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+            }
+
+        }
     }
 
     void playerMovement()
