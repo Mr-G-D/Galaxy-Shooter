@@ -1,5 +1,6 @@
 
 
+using System.Collections;
 using UnityEngine;
 using Random = System.Random;
 
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private GameObject _laser;
     [SerializeField] private GameObject _tripleShot;
     private bool _tripleshotpower;
+    private bool _speedpower;
 
 
     [SerializeField]
@@ -68,8 +70,8 @@ public class Player : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.right * horizontal * _speed * Time.deltaTime);
-        transform.Translate(Vector3.up * vertical * _speed * Time.deltaTime);
+        transform.Translate(Vector3.right * horizontal * _speed * Time.deltaTime * (_speedpower == true ? 2 : 1));
+        transform.Translate(Vector3.up * vertical * _speed * Time.deltaTime * (_speedpower==true? 2 : 1));
 
         if (transform.position.x > _rightBound)
         {
@@ -89,17 +91,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.CompareTag("PowerUps"))
-        {
-            //if(collider.name == "TripleShotPower")
-            //{
-                _tripleshotpower = true;
-                Destroy(collider.gameObject);
-            //}
-        }
-    }
 
     public void damage()
     {
@@ -110,4 +101,30 @@ public class Player : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+
+    public void TripleShotActive()
+    {
+        _tripleshotpower = true;
+        StartCoroutine(TripleShotPowerDown());
+    }
+
+    public void SpeedPowerActive()
+    {
+        _speedpower = true;
+        StartCoroutine(SpeedPowerDown());
+    }
+
+    IEnumerator TripleShotPowerDown()
+    {
+        yield return new WaitForSeconds(5);
+        _tripleshotpower = false;
+    }
+
+    IEnumerator SpeedPowerDown()
+    {
+        yield return new WaitForSeconds(5);
+        _speedpower = false;
+    }
+
 }

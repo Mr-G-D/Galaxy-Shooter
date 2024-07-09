@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _enemy;
     [SerializeField] private GameObject _enemyContainer;
-    [SerializeField] private GameObject _trhipleShot;
+    [SerializeField] private GameObject[] _powerups;
 
     private Vector3 _spawnLoc;
 
@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawn());
-        StartCoroutine(tripleShotPower());
+        StartCoroutine(powerUp());
     }
 
     // Update is called once per frame
@@ -38,13 +38,14 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    IEnumerator tripleShotPower()
+    IEnumerator powerUp()
     {
         while (_isPlayer)
         {
             _spawnLoc = new Vector3(Random.Range(-9.6f, 9.6f), 8.5f, 0);
-            Instantiate(_trhipleShot, _spawnLoc, Quaternion.identity);
-            yield return new WaitForSeconds(5f);
+            int num = Random.Range(0, _powerups.Length);
+            Instantiate(_powerups[num], _spawnLoc, Quaternion.identity);
+            yield return new WaitForSeconds(10f);
         }
     }
 

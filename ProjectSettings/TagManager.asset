@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Laser
+  - PowerUps
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - 
@@ -41,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Backgroud
+    uniqueID: 1780940091
+    locked: 0
+  - name: Foreground
+    uniqueID: 1843721559
     locked: 0
