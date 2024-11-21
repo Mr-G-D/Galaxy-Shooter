@@ -34,6 +34,10 @@ public class PowerUp : MonoBehaviour
             {
                 player.SpeedPowerActive();
             }
+            else if(_id == 2)
+            {
+                player.SheildPowerActive();
+            }
             Destroy(this.gameObject);
         }
     }

@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     private bool _tripleshotpower;
     private bool _speedpower;
 
+    [SerializeField] private GameObject _sheildObject;
+    private bool _sheildpower = false;
+
 
     [SerializeField]
     private float _fireRate = 0.5f;
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        _sheildObject.SetActive(false);
         transform.position = Vector3.zero;
         _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _tripleshotpower = false;
@@ -94,6 +98,14 @@ public class Player : MonoBehaviour
 
     public void damage()
     {
+
+        if(_sheildpower == true)
+        {
+            _sheildObject.SetActive(false);
+            _sheildpower = false;
+            return;
+        }
+
         _lives--;
         if (_lives == 0)
         {
@@ -113,6 +125,12 @@ public class Player : MonoBehaviour
     {
         _speedpower = true;
         StartCoroutine(SpeedPowerDown());
+    }
+
+    public void SheildPowerActive()
+    {
+        _sheildObject.SetActive(true);
+        _sheildpower = true;
     }
 
     IEnumerator TripleShotPowerDown()
