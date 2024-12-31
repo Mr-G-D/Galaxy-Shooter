@@ -119,8 +119,8 @@ public class Player : MonoBehaviour
             _sheildpower = false;
             return;
         }
-
         _lives--;
+        _uiManager.updateLives(_lives);
         if (_lives == 0)
         {
             _spawnManager.playerDeath();
