@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private Sprite[] _lives;
 
+    [SerializeField] private TextMeshProUGUI _gameover_text;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,5 +28,10 @@ public class UIManager : MonoBehaviour
     public void updateLives(int lives)
     {
         _curr_score_disp.sprite = _lives[lives];
+
+        if(lives == 0)
+        {
+            _gameover_text.gameObject.SetActive(true);
+        }
     }
 }
