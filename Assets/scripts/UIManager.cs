@@ -13,11 +13,18 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _gameover_text;
 
+    [SerializeField] private TextMeshProUGUI _restart_text;
+
+    private GameManager _gamemanager;
+   
+
     // Start is called before the first frame update
     void Start()
     {
         _score_text.text = "Score: 0";
         _curr_score_disp.sprite = _lives[3];
+
+        _gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     public void updateScore(int score)
@@ -32,6 +39,8 @@ public class UIManager : MonoBehaviour
         if(lives == 0)
         {
             _gameover_text.gameObject.SetActive(true);
+            _restart_text.gameObject.SetActive(true);
+            _gamemanager.gameover();
             StartCoroutine(flicker());
         }
     }
