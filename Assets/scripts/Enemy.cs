@@ -11,6 +11,17 @@ public class Enemy : MonoBehaviour
     private float _leftBound = -9.6f;
     [SerializeField] private float _enemyBase = 7f;
 
+    private Animator _anim;
+
+
+    void Start()
+    {
+        _anim = GetComponent<Animator>();
+        if(_anim == null)
+        {
+            Debug.Log("Animator is null");
+        }
+    }
 
     void Update()
     {
@@ -32,7 +43,9 @@ public class Enemy : MonoBehaviour
             {
                 player.damage();
             }
-            Destroy(this.gameObject);
+            _enemySpeed = 0;
+            _anim.SetTrigger("EnemyBlast");
+            Destroy(this.gameObject, 2.8f);
         }
 
         if(collider.tag == "Laser")
@@ -40,8 +53,11 @@ public class Enemy : MonoBehaviour
             Player player = GameObject.Find("Player").GetComponent<Player>();
             player.scoreUp();
             Destroy(collider.gameObject);
-            Destroy(this.gameObject);
+            _enemySpeed = 0;
+            _anim.SetTrigger("EnemyBlast");
+            Destroy(this.gameObject, 2.8f);
         }
+
     }
 
 }
