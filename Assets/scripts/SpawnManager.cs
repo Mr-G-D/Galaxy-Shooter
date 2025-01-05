@@ -12,12 +12,14 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 _spawnLoc;
 
+
     private bool _isPlayer = true;
     // Start is called before the first frame update
     public void startSpawning()
     {
         StartCoroutine(spawn());
         StartCoroutine(powerUp());
+
     }
 
     IEnumerator spawn()

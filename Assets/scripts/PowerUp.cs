@@ -9,10 +9,12 @@ public class PowerUp : MonoBehaviour
 
     [SerializeField] private float _id;
 
+    [SerializeField] private AudioClip _powerup_clip;
+
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * _speed * Time.deltaTime);
+        transform.Translate(_speed * Time.deltaTime * Vector3.down);
 
         if(transform.position.y < -5.8f)
         {
@@ -26,7 +28,9 @@ public class PowerUp : MonoBehaviour
         if(collider.name == "Player")
         {
             Player player = collider.transform.GetComponent<Player>();
-            if(_id == 0)
+            AudioSource.PlayClipAtPoint(_powerup_clip, transform.position);
+            _speed = 0;
+            if (_id == 0)
             {
                 player.TripleShotActive();
             }
@@ -38,7 +42,7 @@ public class PowerUp : MonoBehaviour
             {
                 player.SheildPowerActive();
             }
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.3f);
         }
     }
 }
