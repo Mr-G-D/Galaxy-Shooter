@@ -14,20 +14,15 @@ public class SpawnManager : MonoBehaviour
 
     private bool _isPlayer = true;
     // Start is called before the first frame update
-    void Start()
+    public void startSpawning()
     {
         StartCoroutine(spawn());
         StartCoroutine(powerUp());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator spawn()
     {
+        yield return new WaitForSeconds(3.0f);
         while (_isPlayer)
         {
 
@@ -40,6 +35,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator powerUp()
     {
+        yield return new WaitForSeconds(3.5f);
         while (_isPlayer)
         {
             _spawnLoc = new Vector3(Random.Range(-9.6f, 9.6f), 8.5f, 0);
