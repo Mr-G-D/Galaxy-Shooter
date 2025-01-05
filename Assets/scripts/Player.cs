@@ -33,8 +33,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private int _score;
 
-    [SerializeField] private GameObject rightEngine;
-    [SerializeField] private GameObject leftEngine;
+    [SerializeField] private GameObject _rightEngine;
+    [SerializeField] private GameObject _leftEngine;
+
+    [SerializeField] private AudioSource _laser_audio;
+
 
     void Start()
     {
@@ -84,6 +87,8 @@ public class Player : MonoBehaviour
                 Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
             }
 
+            _laser_audio.Play(0);
+
         }
     }
 
@@ -125,11 +130,11 @@ public class Player : MonoBehaviour
         _lives--;
         if(_lives == 2)
         {
-            rightEngine.SetActive(true);
+            _rightEngine.SetActive(true);
         }
         if(_lives == 1)
         {
-            leftEngine.SetActive(true);
+            _leftEngine.SetActive(true);
         }
         _uiManager.updateLives(_lives);
         if (_lives == 0)

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1349
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 99
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 40
+  controlID: 70
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 87
+  controlID: 100
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -342,6 +342,7 @@ MonoBehaviour:
   m_ViewTransforms:
     m_KeySerializationHelper:
     - {fileID: 2757604166950575228, guid: 6e6bf2f1c124c6f4aaefd64153d76112, type: 2}
+    - {fileID: 7141467002306933416, guid: 6602d5bf0e001b84fb94b2f0cd9e722d, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.99450547
       e01: 0
@@ -359,10 +360,26 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 0.99450547
+      e01: 0
+      e02: 0
+      e03: -34.72525
+      e10: 0
+      e11: 0.99450547
+      e12: 0
+      e13: 126.4588
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 6e6bf2f1c124c6f4aaefd64153d76112, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 6602d5bf0e001b84fb94b2f0cd9e722d, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2757604166950575228, guid: 6e6bf2f1c124c6f4aaefd64153d76112, type: 2}
+  - m_Target: {fileID: 7141467002306933416, guid: 6602d5bf0e001b84fb94b2f0cd9e722d, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -411,7 +428,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28738
+  m_LastSelectedObjectID: 27480
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -483,9 +500,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3a5a0000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2a92ffff50deffffc8f5ffffbcf9ffff24fbffff
+      m_ExpandedIDs: 60acffff5caeffff24fbffff586b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -554,7 +571,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/prefabs/Enemy
+    - Assets/Sprites/Player_Hurt
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -562,16 +579,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 60
   m_LastFolders:
-  - Assets/prefabs/Enemy
+  - Assets/Sprites/Player_Hurt
   m_LastFoldersGridSize: 60
   m_LastProjectPath: D:\Unity\projects\Galaxy Shooter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8a600000
-    m_LastClickedID: 24714
-    m_ExpandedIDs: 00000000165b0000185b00001a5b0000205b0000245b0000265b00004668000000ca9a3b
+    m_SelectedIDs: 865c0000
+    m_LastClickedID: 23686
+    m_ExpandedIDs: 00000000625c0000645c0000665c0000685c00006a5c0000705c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,7 +616,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000165b0000185b00001a5b0000
+    m_ExpandedIDs: 00000000625c0000645c0000665c0000685c00006a5c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -651,7 +668,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 789}
     m_GridSize: 60
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 267
@@ -985,9 +1002,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.18850005, y: 0.29049993, z: 0}
+    m_Target: {x: -0.43938076, y: -0.06627439, z: -0.011637669}
     speed: 2
-    m_Value: {x: 0.18852869, y: 0.29051793, z: 0}
+    m_Value: {x: -0.43938076, y: -0.06627439, z: -0.011637669}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1037,9 +1054,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 2.0707574
+    m_Target: 3.234511
     speed: 2
-    m_Value: 2.070794
+    m_Value: 3.234511
   m_Ortho:
     m_Target: 1
     speed: 2
